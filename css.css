@@ -1,0 +1,81 @@
+*{
+	font-family: monospace;
+	font-size: 20px;
+}
+body{
+	background-color: #333;
+	color: #ca6;
+	margin: 1em;
+}
+a{
+	color: #fc7;
+	text-decoration-thickness: 1px;
+}
+header,
+footer,
+main div{
+	background-color: #7b461f;
+	color: #e9c5a0;
+}
+header,
+footer{
+	margin-block: 1em;
+	margin-inline: auto;
+	padding: 1em;
+	border-inline: 2px dashed;
+	max-width: 80ch;
+}
+header::before{
+	content: "📜";
+}
+header *{
+	font-family: initial;
+}
+header blockquote{
+	margin-block: 0;
+	margin-inline: 1em;
+	text-align: justify;
+	font-size: initial;
+}
+main{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	padding: 1em;
+}
+main #typewriter_page{
+	flex: 1;
+	word-break: break-all;
+	border-block: 2px dashed;
+	padding-block: .5em;
+}
+main #typewriter_page span {
+	display: inline-block;
+	animation: keypressed .3s linear;
+}
+@keyframes keypressed {
+	0%{
+		transform: scale(4);
+	}
+	50%{
+		color: white;
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+main div{
+	margin: 1em;
+	margin-right: -2em;
+	padding: 20px;
+	border: 2px dashed;
+	border-right: 0;
+	border-radius: 3em 0 0 3em;
+}
+footer{
+	font-size: .8em;
+	width: fit-content;
+}
+footer::before{
+	content: "📃 ";
+}
