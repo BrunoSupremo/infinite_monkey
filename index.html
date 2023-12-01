@@ -7,17 +7,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<header>
-		<a href="https://en.wikipedia.org/wiki/Infinite_monkey_theorem">From Wikipedia:</a>
-		<blockquote>The infinite monkey theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type any given text, including the complete works of William Shakespeare. In fact, the monkey would almost surely type every possible finite text an infinite number of times. The theorem can be generalized to state that any sequence of events which has a non-zero probability of happening will almost certainly eventually occur, given unlimited time.</blockquote>
-	</header>
+	<header id="header">header</header>
+	<a class="jump_to" href="#footer">To the bottom</a>
 	<main>
-		<span id="typewriter_page"></span>
-		<div>
+		<div id="typewriter_page"></div>
+		<div id="sidebar">
 			<img src="monkey.png">
+			<div id="wiki">
+				<a href="https://en.wikipedia.org/wiki/Infinite_monkey_theorem">From Wikipedia:</a>
+				<blockquote cite="https://en.wikipedia.org/wiki/Infinite_monkey_theorem">The infinite monkey theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type any given text, including the complete works of William Shakespeare. In fact, the monkey would almost surely type every possible finite text an infinite number of times. The theorem can be generalized to state that any sequence of events which has a non-zero probability of happening will almost certainly eventually occur, given unlimited time.</blockquote>
+			</div>
 		</div>
 	</main>
-	<footer>This thing was done by this monkey > <a href="https://brunosupremo.github.io/Portfolio-Pessoal/">Bruno</a></footer>
+	<a class="jump_to" href="#header">To the top</a>
+	<footer id="footer">This thing was done by this monkey > <a href="https://brunosupremo.github.io/Portfolio-Pessoal/">Bruno</a></footer>
 	<script src="javascript.js"></script>
 </body>
 </html>

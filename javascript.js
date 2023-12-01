@@ -1,26 +1,33 @@
 let typed = document.getElementById("typewriter_page");
-let letters = [];
-for(let i = 0; i < 26; i++) {
-	letters[i] = String.fromCharCode(97 + i);
-}
+let letters = "abcdefghijklmnopqrstuvwxyz";
 
 function random_at(index) {
 	let x = Math.sin(index)*100000;
 	return x - Math.floor(x);
 }
 
-// console.time("My code");
 const time_between_strokes = 500
 let content = [];
 let current_time_seconds = Math.floor(Date.now()/time_between_strokes)
-// let half_line_of_character = Math.floor(typed.offsetWidth / 2 / 11)
-// for (let i = current_time_seconds-half_line_of_character*5; i < current_time_seconds; i++) {
-for (let i = current_time_seconds-1000; i < current_time_seconds; i++) {
+let container = document.createElement("div")
+let counter = 0
+for (let i = current_time_seconds-172800; i < current_time_seconds; i++) {
+	counter++
 	content.push(letters[Math.floor(random_at(i)*26)]);
-}
-typed.innerText = content.join("");
+	if (counter>=7200) { // 7200 = 1 hour worth of 2 characters/sec
+		container.innerText = content.join("");
+		container.setAttribute("data-date", new Date(i*time_between_strokes));
+		typed.appendChild(container)
+		content = []
+		counter = 0
+		container = document.createElement("div")
+	}
 
-// console.timeEnd("My code");
+}
+if(counter>0){
+	container.innerText = content.join("");
+	typed.appendChild(container)
+}
 
 
 function add_new_letter() {
@@ -32,16 +39,3 @@ function add_new_letter() {
 	setTimeout(add_new_letter, time_between_strokes);
 }
 add_new_letter()
-
-function count_letters() {
-	let letterCounts = {};
-	for(let i = 0; i < content.length; i++) {
-		let letter = content[i];
-		if(letterCounts[letter]) {
-			letterCounts[letter]++;
-		} else {
-			letterCounts[letter] = 1;
-		}
-	}
-	console.log(letterCounts);
-}
