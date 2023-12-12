@@ -2,11 +2,17 @@ html{
 	font-family: monospace;
 	font-size: 20px;
 	scroll-behavior: smooth;
+
+	--dark_color: #7b461f;
+	--light_color: #e9c5a0;
 }
 body{
 	background-color: #333;
 	color: #ca6;
 	margin: 0;
+}
+h2{
+	font-size: 1em;
 }
 img{
 	max-width: 100%;
@@ -18,12 +24,12 @@ a{
 header,
 footer,
 main #sidebar{
-	background-color: #7b461f;
-	color: #e9c5a0;
+	background-color: var(--dark_color);
+	color: var(--light_color);
 	border: 2px dashed;
 	padding: 1em;
 	margin: 1em;
-	outline: 3px solid #7b461f;
+	outline: 3px solid var(--dark_color);
 }
 header,
 footer{
@@ -36,6 +42,34 @@ header{
 	border-top: 0;
 	border-radius: 0 0 3em 3em;
 }
+header input{
+	font-family: inherit;
+	font-size: inherit;
+	border: 2px dotted;
+	color: var(--dark_color);
+	background-color: var(--light_color);
+	border-radius: .5em;
+	padding-inline: .5em;
+	width: 12ch;
+}
+header :is(input,button):focus-visible{
+	outline: 1px solid var(--light_color);
+}
+header input::placeholder{
+	color: inherit;
+	opacity: .5;
+}
+header button{
+	border-radius: 3em;
+	border: 2px dotted;
+	color: var(--dark_color);
+	font-size: 1em;
+	margin-left: -3ch;
+	padding: .3em;
+	line-height: 1em;
+	cursor: pointer;
+}
+
 main{
 	display: flex;
 	justify-content: space-evenly;
@@ -48,7 +82,7 @@ main #typewriter_page{
 	word-break: break-all;
 	margin: 1em;
 }
-main #typewriter_page div::before {
+main #typewriter_page div::before{
 	content: attr(data-date);
 	display: block;
 	margin-top: 1em;
@@ -57,14 +91,14 @@ main #typewriter_page div::before {
 	text-align: center;
 	text-wrap: balance;
 }
-main #typewriter_page div:first-child::before {
+main #typewriter_page div:first-child::before{
 	margin-top: 0;
 }
-main #typewriter_page span:last-child {
+main #typewriter_page span:last-child{
 	display: inline-block;
 	animation: keypressed .3s linear;
 }
-@keyframes keypressed {
+@keyframes keypressed{
 	0%{
 		transform: scale(4);
 	}
@@ -77,12 +111,12 @@ main #typewriter_page span:last-child {
 }
 
 a.jump_to{
-	background-color: #7b461f;
-	color: #e9c5a0;
+	background-color: var(--dark_color);
+	color: var(--light_color);
 	margin-block: 1em;
 	padding: 0.5em 1em;
 	border: 2px dashed;
-	outline: 3px solid #7b461f;
+	outline: 3px solid var(--dark_color);
 	border-left: 0;
 	border-radius: 0 1em 1em 0;
 	display: inline-block;
@@ -99,6 +133,15 @@ main #sidebar{
 main #sidebar img{
 	display: block;
 	margin: auto;
+}
+main #sidebar div:not(#wiki){
+	margin-block: 1em;
+	margin-inline: -1em;
+	padding-inline: 1em;
+	border-top: 2px dashed;
+}
+main #sidebar div:not(#wiki) p{
+	text-indent: 2ch;
 }
 main #sidebar #wiki::before{
 	content: "📜";
@@ -118,4 +161,16 @@ footer{
 }
 footer::before{
 	content: "📃 ";
+}
+
+@media only screen and (max-width: 768px) {
+	main{
+		flex-direction: column-reverse;
+	}
+	main #sidebar{
+		max-width: none;
+		margin-right: 1em;
+		border-right: 2px dashed;
+		border-radius: 3em;
+	}
 }

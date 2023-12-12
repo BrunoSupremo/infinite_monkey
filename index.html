@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
 	<title>Infinite Monkey Typewriter</title>
 	<meta charset="utf-8">
@@ -7,15 +7,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<header id="header">header</header>
+	<header id="header">
+		<input type="search" id="search_input" name="search" placeholder="Search"><button id="search_button">🔍</button>
+	</header>
 	<a class="jump_to" href="#footer">To the bottom</a>
 	<main>
-		<div id="typewriter_page"></div>
+		<div id="typewriter_page" lang="zxx"></div>
 		<div id="sidebar">
-			<img src="monkey.png">
+			<img src="monkey.png" alt="drawing of a chibi monkey with a typewriter">
 			<div id="wiki">
 				<a href="https://en.wikipedia.org/wiki/Infinite_monkey_theorem">From Wikipedia:</a>
 				<blockquote cite="https://en.wikipedia.org/wiki/Infinite_monkey_theorem">The infinite monkey theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type any given text, including the complete works of William Shakespeare. In fact, the monkey would almost surely type every possible finite text an infinite number of times. The theorem can be generalized to state that any sequence of events which has a non-zero probability of happening will almost certainly eventually occur, given unlimited time.</blockquote>
+			</div>
+			<div>
+				<h2>The fun:</h2>
+				<p>Search your name. Your friends names. Check who appears more, dogs or cats.</p>
+				<p>Challenge your friends on who can find the best or bigger words. Maybe the <a href="https://www.nytimes.com/games/wordle/index.html">wordle</a> of the day is found.</p>
+				<p>Browser through different dates. See what was typed on your birthday.</p>
+			</div>
+			<div>
+				<h2>The math:</h2>
+				<p>On average, a specific letter appears once every 26 characters typed. The chances of a specific word appearing decreases as the length of the word increases.</p>
+				<p>The math is simple, just multiply by 26 for each letter a word has.</p>
+				<p>4 letters words appears (on average) once every 456976 characters typed!</p>
+				<p>To put it into perspective, the monkey types "just" 345600 characters per day (4 characters per second)</p>
 			</div>
 		</div>
 	</main>
