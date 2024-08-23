@@ -1,6 +1,6 @@
 html{
 	font-family: monospace;
-	font-size: 20px;
+	font-size: 16px;
 	scroll-behavior: smooth;
 
 	--dark_color: #7b461f;
@@ -42,7 +42,7 @@ header{
 	border-top: 0;
 	border-radius: 0 0 3em 3em;
 }
-header input{
+header :is(input,select){
 	font-family: inherit;
 	font-size: inherit;
 	border: 2px dotted;
@@ -50,7 +50,6 @@ header input{
 	background-color: var(--light_color);
 	border-radius: .5em;
 	padding-inline: .5em;
-	width: 12ch;
 }
 header :is(input,button):focus-visible{
 	outline: 1px solid var(--light_color);
@@ -64,7 +63,6 @@ header button{
 	border: 2px dotted;
 	color: var(--dark_color);
 	font-size: 1em;
-	margin-left: -3ch;
 	padding: .3em;
 	line-height: 1em;
 	cursor: pointer;
@@ -111,6 +109,7 @@ main #typewriter_page span:last-child{
 }
 
 a.jump_to{
+	position: relative;
 	background-color: var(--dark_color);
 	color: var(--light_color);
 	margin-block: 1em;
@@ -123,9 +122,12 @@ a.jump_to{
 	font-size: smaller;
 	text-decoration: none;
 }
+a.jump_to:hover{
+	left: 1px;
+}
 
 main #sidebar{
-	max-width: 30%;
+	width: 230px;
 	margin-right: 0;
 	border-right: 0;
 	border-radius: 3em 0 0 3em;
@@ -168,7 +170,7 @@ footer::before{
 		flex-direction: column-reverse;
 	}
 	main #sidebar{
-		max-width: none;
+		width: auto;
 		margin-right: 1em;
 		border-right: 2px dashed;
 		border-radius: 3em;
