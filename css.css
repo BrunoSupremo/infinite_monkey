@@ -175,4 +175,8 @@ footer::before{
 		border-right: 2px dashed;
 		border-radius: 3em;
 	}
+	header{
+		display: grid;
+		gap: .5em;
+	}
 }

@@ -76,7 +76,7 @@ function load_fraction_current_hour(date){
 	let content = [];
 	const current_time_fraction = Math.floor(date_round_hour / time_between_strokes)
 	const ending_time_fraction = Math.floor(date / time_between_strokes)
-	for (let i = current_time_fraction; i < ending_time_fraction; i++) {
+	for (let i = current_time_fraction; i <= ending_time_fraction; i++) {
 		content.push(letters[Math.floor(random_at(i) * letters.length)]);
 	}
 	const current_container = document.createElement("div")
