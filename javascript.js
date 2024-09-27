@@ -16,20 +16,26 @@ case "custom":
 	break;
 }
 let starting_date = false
-if(urlParams.get("year")){
-	starting_date = new Date(+urlParams.get("year"),+urlParams.get("month"),+urlParams.get("day"))
+if(urlParams.get("date")){
+	starting_date = new Date(urlParams.get("date").split("-"))
 }
 
 const monkey_input = document.getElementById("monkey_input");
 const date_input = document.getElementById("date_input");
 const search_button = document.getElementById("search_button");
+
+function date_to_YYYY_MM_DD(date) {
+	const year = date.getFullYear();
+	const month = String(date.getMonth() + 1).padStart(2, '0');
+	const day = String(date.getDate()).padStart(2, '0');
+	return `${year}-${month}-${day}`;
+}
+date_input.max = date_to_YYYY_MM_DD(new Date());
+
 search_button.addEventListener('click', function(e) {
 	const new_url = []
 	if (date_input.value) {
-		const date = new Date(date_input.value)
-		new_url.push("year="+date.getUTCFullYear())
-		new_url.push("month="+date.getUTCMonth())
-		new_url.push("day="+date.getUTCDate())
+		new_url.push("date="+date_input.value)
 	}
 	if (monkey_input.value) {
 		new_url.push("monkey="+monkey_input.value)
