@@ -21,7 +21,13 @@ if(urlParams.get("date")){
 }
 
 const monkey_input = document.getElementById("monkey_input");
+if(urlParams.get("monkey")){
+	monkey_input.value = urlParams.get("monkey")
+}
 const date_input = document.getElementById("date_input");
+if(urlParams.get("date")){
+	date_input.value = urlParams.get("date")
+}
 const search_button = document.getElementById("search_button");
 
 function date_to_YYYY_MM_DD(date) {
@@ -44,6 +50,12 @@ search_button.addEventListener('click', function(e) {
 		window.location.href = "?"+new_url.join("&")
 	}
 }, false);
+document.getElementById('header').addEventListener('keypress', function(event) {
+	if (event.key === 'Enter') {
+		// event.preventDefault();
+		search_button.click()
+	}
+});
 
 function random_at(index) {
 	const x = Math.sin(index)*100000000;
