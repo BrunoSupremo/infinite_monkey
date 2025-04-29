@@ -13,13 +13,19 @@
 </head>
 <body>
 	<header id="header">
-		<select id="monkey_input">
-			<option value="1" selected>Default 🙊</option>
-			<option value="2">Numbers 🙉</option>
-			<option value="3">Pipes 🙈</option>
-			<option value="4">Tiles ⬛</option>
-		</select>
-		<input type="date" id="date_input" name="date_input">
+		<label>
+			<span>Monkey type:</span>
+			<select id="monkey_input">
+				<option value="1" selected>Default 🙊</option>
+				<option value="2">Numbers 🙉</option>
+				<option value="3">Pipes 🙈</option>
+				<option value="4">Tiles ⬛</option>
+			</select>
+		</label>
+		<label>
+			<span>History:</span>
+			<input type="date" id="date_input" name="date_input">
+		</label>
 		<button id="search_button">🔍</button>
 	</header>
 	<a class="jump_to" href="#footer">To the bottom</a>
